@@ -77,6 +77,15 @@ def delete_contact(name):
         print(f"[delete_contact] Contact '{name}' not found.")
 
 
+def display_menu():
+    """Prints the contact manager menu options."""
+    print("\n--- Contact Manager ---")
+    print("1. Add Contact")
+    print("2. Find Contact")
+    print("3. Delete Contact")
+    print("4. Exit")
+
+
 def main():
     """
     Runs the command-line menu for the contact manager.
@@ -84,18 +93,14 @@ def main():
     Handles invalid input and prints readable messages.
     """
     while True:
-        print("\n--- Contact Manager ---")
-        print("1. Add Contact")
-        print("2. Find Contact")
-        print("3. Delete Contact")
-        print("4. Exit")
+        display_menu()
         try:
             choice = int(input("Enter your choice (1-4): "))
         except ValueError:
             print("Invalid choice. Please enter a number (1-4).")
             continue
         if choice == 1:
-            name = input("Enter contact name: ")
+            name = input("Enter contact name: ").strip()
             phone = input("Enter phone number: ")
             try:
                 add_contact(name, phone)
