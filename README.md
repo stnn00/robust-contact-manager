@@ -12,3 +12,10 @@ This application allows users to:
 - Run automated unit tests to verify functionality.
 
 The project now features a cleaner and more resilient design, incorporating **custom exception handling**, thorough **input validation**, and a **modular structure**, all supported by an extensive **test suite** built with the `unittest` framework.
+
+
+## Demonstration
+
+Video on YouTube (--:--) for demonstration purposes of `contact_manager.py` and `test_contact_manager.py`:
+
+- *[LINK_HERE](LINK_HERE)*
