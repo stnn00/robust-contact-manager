@@ -6,6 +6,8 @@ class DuplicateContactError(Exception):
     pass
 
 def add_contact(name, phone):
+    if name in contacts:
+        raise DuplicateContactError(f"{name} already exists.")
     contacts[name] = phone
     print(f"Added {name} to contacts.")
 
@@ -36,17 +38,20 @@ def main():
             print("Invalid choice. Please enter a number (1-4).")
             continue
         
-        if choice == '1':
+        if choice == 1:
             name = input("Enter contact name: ")
             phone = input("Enter phone number: ")
-            add_contact(name, phone)
-        elif choice == '2':
+            try:
+                add_contact(name, phone)
+            except DuplicateContactError as e:
+                print(f"An error occurred. {e}")
+        elif choice == 2:
             name = input("Enter name to find: ")
             find_contact(name)
-        elif choice == '3':
+        elif choice == 3:
             name = input("Enter name to delete: ")
             delete_contact(name)
-        elif choice == '4':
+        elif choice == 4:
             break
         else:
             print("Invalid choice.")
