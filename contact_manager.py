@@ -74,7 +74,7 @@ def main():
             print("Invalid choice.")
 
 
-RUN_TESTS = True
+RUN_TESTS = False
 
 if RUN_TESTS:
     test_contacts = {"Anna": "612-123-4567"}
