@@ -111,12 +111,12 @@ def main():
         if choice == 1:
             name = input("Enter contact name: ").strip()
             if not name:
-                print("Name cannot be blank.")
+                print("[ERROR] Name cannot be blank. Please try again.")
                 continue
 
             phone = input("Enter phone number: ").strip()
             if not phone:
-                print("Phone number cannot be blank.")
+                print("[ERROR] Phone number cannot be blank. Please try again.")
                 continue
 
             try:
@@ -127,7 +127,7 @@ def main():
         elif choice == 2:
             name = input("Enter name to find: ").strip()
             if not name:
-                print("Name cannot be blank.")
+                print("[ERROR] Name cannot be blank. Please try again.")
                 continue
 
             contact_manager.find_contact(name)
@@ -135,7 +135,7 @@ def main():
         elif choice == 3:
             name = input("Enter name to delete: ").strip()
             if not name:
-                print("Name cannot be blank.")
+                print("[ERROR] Name cannot be blank. Please try again.")
                 continue
 
             contact_manager.delete_contact(name)
