@@ -77,7 +77,7 @@ The refactored version introduces several key enhancements:
         ```bash
         python contact_manager.py
         ```
-    - Interactive command-line interface will appear:
+    - The interactive command-line interface will appear:
 
     ```text
     --- Contact Manager ---
@@ -94,7 +94,7 @@ The refactored version introduces several key enhancements:
         - If the name is new, it will print:
             `[add_contact] Added Anna (612-111-1111) to contacts.`
         - If you enter an invalid input, it will catch the invalid input and prompt again.
-    - Finding or deleting contacts non-existent contact prints:
+    - Finding or deleting a non-existent contact prints:
 
         ```text
         [find_contact] Contact 'Anna' not found.
@@ -137,6 +137,6 @@ OK
 
 ## Test Output Notes
 
-- Each dot (`.`) represents a passed test.
+- Each dot (`.`) corresponds to a test method in `test_contact_manager.py` and represents a passed test.
 - Test failures produce tracebacks indicating what went wrong.
-- During normal test runs, you may notice that the dots (`.`) indicating passing tests are not perfectly aligned. This happens because the `contact_manager.py` functions print messages like `[add_contact] Added ...` to the console during execution. These printed messages appear between the dots in the unittest output, which can make the dots appear unevenly spaced. Rest assured, all dots still indicate passing tests, and the tests are fully successful.
+- During normal test runs, you may notice that the dots (`.`) indicating passing tests are not perfectly aligned. This happens because the `contact_manager.py` functions print messages like `[add_contact] Added ...` to the console during execution. These printed messages appear between the dots in the unittest output, making them appear unevenly spaced. Rest assured, all dots still indicate passing tests, and the tests are fully successful.
