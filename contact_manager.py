@@ -21,13 +21,15 @@ class DuplicateContactError(Exception):
 
 
 class ContactManager:
+    """Manages a dictionary of contacts with add, find, and delete operations."""
 
     def __init__(self):
+        """Initialize the contact manager with an empty contacts dictionary."""
         self.contacts = {}
         
     def add_contact(self, name, phone):
         """
-        Add a new contact to the contacts dictionary.
+        Add a new contact to the contacts dictionary or raise DuplicateContactError.
 
         Args:
             name (str): The contact's name.
@@ -37,27 +39,28 @@ class ContactManager:
             DuplicateContactError: If the contact already exists.
     
         Returns:
-            None
+            str: Message indicating the contact was successfully added.
         """
         if name in self.contacts:
-            raise DuplicateContactError(f"[add_contact] {name} already exists.")
+            raise DuplicateContactError(f"{name} already exists.")
         self.contacts[name] = phone
         print(f"[add_contact] Added {name} ({phone}) to contacts.")
 
 
     def find_contact(self, name):
         """
-        Finds a contact's phone number, prints a message if the contact exists or not.
+        Retrieves a contact's phone number, and prints a message.
 
         Args:
             name (str): The contact's name.
     
         Returns:
-            str or None: The phone number if found, otherwise None.
+            str or None: Returns the number if found, else None.
         """
         try:
-            print(f"[find_contact] Found '{name}': {self.contacts[name]}")
-            return self.contacts[name]
+            phone_number = self.contacts[name]
+            print(f"[find_contact] Found '{name}': {phone_number}")
+            return phone_number
         except KeyError:
             print(f"[find_contact] Contact '{name}' not found.")
             return None
