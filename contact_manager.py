@@ -30,9 +30,10 @@ def add_contact(name, phone):
 
 def find_contact(name):
     try:
-        print(contacts[name])
+        return(contacts[name])
     except KeyError:
         print("Contact not found.")
+        return None
 
 
 def delete_contact(name):
