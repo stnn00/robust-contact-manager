@@ -1,4 +1,11 @@
-# buggy_contacts.py
+"""
+buggy_contacts.py
+
+Intentionally flawed starter script for a command-line contact manager application.
+
+This script is provided to practice debugging, error handling, and refactoring
+and contains issues such as missing input validation and error handling.
+"""
 
 contacts = {}
 
