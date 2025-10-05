@@ -40,9 +40,9 @@ def find_contact(name):
 def delete_contact(name):
     try:
         del contacts[name]
-        print(f"Deleted {name}.")
+        print(f"[delete_contact] Successfully deleted {name} from contacts.")
     except KeyError:
-        print("Contact not found.")
+        print(f"[delete_contact] Contact '{name}' not found.")
 
 
 def main():
