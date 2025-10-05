@@ -43,10 +43,10 @@ class TestContactManager(unittest.TestCase):
         Ensure add_contact correctly adds a contact to the dictionary
         and stores the correct phone number.
         """
-        contact_manager.contacts.clear()
-        contact_manager.add_contact("Vanilla", "612-890-1234")
-        self.assertIn("Vanilla", contact_manager.contacts)
-        self.assertEqual(contact_manager.contacts["Vanilla"], "612-890-1234")
+        cm = ContactManager()
+        cm.add_contact("Vanilla", "612-890-1234")
+        self.assertIn("Vanilla", cm.contacts)
+        self.assertEqual(cm.contacts["Vanilla"], "612-890-1234")
 
     def test_finding_existing_contact(self):
         """
