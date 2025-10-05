@@ -133,5 +133,10 @@ Ran 6 tests in 0.001s
 
 OK
 ```
-- Eacch dot (`.`) represents a passed test.
+
+
+## Test Output Notes
+
+- Each dot (`.`) represents a passed test.
 - Test failures produce tracebacks indicating what went wrong.
+- During normal test runs, you may notice that the dots (`.`) indicating passing tests are not perfectly aligned. This happens because the `contact_manager.py` functions print messages like `[add_contact] Added ...` to the console during execution. These printed messages appear between the dots in the unittest output, which can make the dots appear unevenly spaced. Rest assured, all dots still indicate passing tests, and the tests are fully successful.
