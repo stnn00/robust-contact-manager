@@ -18,7 +18,7 @@ The project now features a cleaner and more resilient design, incorporating **cu
 
 Video on YouTube (--:--) for demonstration purposes of `contact_manager.py` and `test_contact_manager.py`:
 
-- *[LINK_HERE](LINK_HERE)*
+- *[https://youtu.be/NjiG4k9sGNME](https://youtu.be/NjiG4k9sGNM)*
 
 
 ## Original Issues in `buggy_contacts.py`
