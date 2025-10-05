@@ -19,8 +19,6 @@ Usage:
 import unittest
 from contact_manager import ContactManager, DuplicateContactError
 
-cm = ContactManager()
-
 
 class TestContactManager(unittest.TestCase):
     """
