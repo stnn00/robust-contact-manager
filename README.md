@@ -46,3 +46,92 @@ The refactored version introduces several key enhancements:
 | **.strip() input cleanup** | Applied `.strip()` to remove leading and trailing whitespace from user input. |
 | **Comprehensive documentation** | Added descriptive module-level and function-level docstrings for clarity. |
 | **Unit testing** | Built a `unittest` suite in `test_contact_manager.py` to verify all core features. |
+
+
+## Installation & Usage
+
+1. **Install Python 3**.
+
+    - Ensure [Python 3](https://www.python.org/downloads/) is installed on your system.
+
+    
+2. **Clone the Repository**
+
+    - Open a terminal (Git bash, Terminal, etc.)
+    - Clone the repository:
+
+    ``` bash
+    git clone https://github.com/stnn00/robust-contact-manager.git
+    ```
+
+    - Move into the repo directory:
+    
+    ``` bash
+    cd robust-contact-manager
+    ```
+
+3. **Run the Main Program**
+
+    1. Once you're inside the cloned repository directory:
+
+        ```bash
+        python contact_manager.py
+        ```
+    - Interactive command-line interface will appear:
+
+    ```text
+    --- Contact Manager ---
+    1. Add Contact
+    2. Find Contact
+    3. Delete Contact
+    4. Exit
+    ```
+    
+    2. Enter a number (1-4) to choose an option.
+    - When adding a contact:
+        - If the name already exists, it raises a `DuplicateContactError` and prints:
+            `An error occurred: Anna already exists.`
+        - If the name is new, it will print:
+            `[add_contact] Added Anna (612-111-1111) to contacts.`
+        - If you enter an invalid input, it will catch the invalid input and prompt again.
+    - Finding or deleting contacts non-existent contact prints:
+
+        ```text
+        [find_contact] Contact 'Anna' not found.
+        [delete_contact] Contact 'Anna' not found.
+        ```
+
+
+
+## Running Unit Tests
+    
+**Run all tests in the repository folder:**
+
+``` bash
+python -m unittest test_contact_manager.py
+```
+
+**Or discover all tests in the directory:**
+    
+``` bash
+python -m unittest discover
+```
+
+**Example of Expected Output**:
+```text
+[add_contact] Added Vanilla (612-890-1234) to contacts.
+.[add_contact] Added Anna (612-123-4567) to contacts.
+.[add_contact] Added Existing Contact (612-123-4567) to contacts.
+[delete_contact] Successfully deleted Existing Contact.
+.[delete_contact] Contact 'Non-existent Contact' not found.
+.[add_contact] Added Anna (612-123-4567) to contacts.
+[find_contact] Found 'Anna': 612-123-4567
+.[find_contact] Contact 'Non-existent Contact' not found.
+.
+----------------------------------------------------------------------
+Ran 6 tests in 0.001s
+
+OK
+```
+- Eacch dot (`.`) represents a passed test.
+- Test failures produce tracebacks indicating what went wrong.
