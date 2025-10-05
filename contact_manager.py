@@ -23,9 +23,9 @@ class DuplicateContactError(Exception):
 
 def add_contact(name, phone):
     if name in contacts:
-        raise DuplicateContactError(f"{name} already exists.")
+        raise DuplicateContactError(f"[add_contact] {name} already exists.")
     contacts[name] = phone
-    print(f"Added {name} to contacts.")
+    print(f"[add_contact] Added {name} ({phone}) to contacts.")
 
 
 def find_contact(name):
