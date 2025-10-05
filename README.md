@@ -16,7 +16,7 @@ The project now features a cleaner and more resilient design, incorporating **cu
 
 ## Demonstration
 
-Video on YouTube (--:--) for demonstration purposes of `contact_manager.py` and `test_contact_manager.py`:
+Video on YouTube (04:57) for demonstration purposes of `contact_manager.py` and `test_contact_manager.py`:
 
 - *[https://youtu.be/NjiG4k9sGNME](https://youtu.be/NjiG4k9sGNM)*
 
