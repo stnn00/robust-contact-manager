@@ -5,6 +5,7 @@ import contact_manager
 
 
 class TestContactManager(unittest.TestCase):
+    
     def test_add_contact(self):
         """Test adding a contact."""
         contact_manager.contacts.clear()
@@ -36,6 +37,16 @@ class TestContactManager(unittest.TestCase):
         """Test deleting a non-existing contact."""
         contact_manager.contacts.clear()
         contact_manager.delete_contact("Non-existent Contact")
+
+    def test_adding_duplicate_contact(self):
+        """Test adding a duplicate contact."""
+        contact_manager.contacts.clear()
+        contact_manager.add_contact("Anna", "612-123-4567")
+        self.assertRaises(
+            contact_manager.DuplicateContactError,
+            contact_manager.add_contact,
+            "Anna", "612-123-4567"
+        )
 
 
 if __name__ == "__main__":
