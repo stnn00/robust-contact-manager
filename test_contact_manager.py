@@ -55,10 +55,10 @@ class TestContactManager(unittest.TestCase):
         Ensures that find_contact returns the correct phone number
         for a contact that exists in the contacts dictionary.
         """
-        contact_manager.contacts.clear()
-        contact_manager.add_contact("Anna", "612-123-4567")
-        phone_number = contact_manager.find_contact("Anna")
-        self.assertEqual(phone_number, "612-123-4567")
+        cm = ContactManager()
+        cm.add_contact("Anna", "612-123-4567")
+        phone = cm.find_contact("Anna")
+        self.assertEqual(phone, "612-123-4567")
 
     def test_finding_nonexistent_contact(self):
         """
@@ -68,9 +68,9 @@ class TestContactManager(unittest.TestCase):
         for contacts that do not exist, returning None and
         not raising an exception.
         """
-        contact_manager.contacts.clear()
-        phone_number = contact_manager.find_contact("Non-existent Contact")
-        self.assertIsNone(phone_number)
+        cm = ContactManager()
+        phone = cm.find_contact("Non-existent Contact")
+        self.assertIsNone(phone)
     
     def test_delete_existing_contact(self):
         """
