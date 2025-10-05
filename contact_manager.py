@@ -46,7 +46,6 @@ class ContactManager:
         self.contacts[name] = phone
         print(f"[add_contact] Added {name} ({phone}) to contacts.")
 
-
     def find_contact(self, name):
         """
         Retrieves a contact's phone number, and prints a message.
@@ -64,7 +63,6 @@ class ContactManager:
         except KeyError:
             print(f"[find_contact] Contact '{name}' not found.")
             return None
-
 
     def delete_contact(self, name):
         """
@@ -98,13 +96,17 @@ def main():
     Handles invalid input and prints readable messages.
     """
     contact_manager = ContactManager()
+
     while True:
+
         display_menu()
+
         try:
             choice = int(input("Enter your choice (1-4): "))
         except ValueError:
             print("Invalid choice. Please enter a number (1-4).")
             continue
+
         if choice == 1:
             name = input("Enter contact name: ").strip()
             phone = input("Enter phone number: ").strip()
@@ -112,14 +114,18 @@ def main():
                 contact_manager.add_contact(name, phone)
             except DuplicateContactError as e:
                 print(f"An error occurred: {e}")
+
         elif choice == 2:
             name = input("Enter name to find: ").strip()
             contact_manager.find_contact(name)
+
         elif choice == 3:
             name = input("Enter name to delete: ").strip()
             contact_manager.delete_contact(name)
+
         elif choice == 4:
             break
+
         else:
             print("Invalid choice.")
 
