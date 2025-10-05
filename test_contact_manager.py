@@ -24,6 +24,13 @@ class TestContactManager(unittest.TestCase):
         contact_manager.contacts.clear()
         phone_number = contact_manager.find_contact("Non-existent Contact")
         self.assertIsNone(phone_number)
+    
+    def test_delete_existing_contact(self):
+        """Test deleting an existing contact."""
+        contact_manager.contacts.clear()
+        contact_manager.add_contact("Existing Contact", "612-123-4567")
+        contact_manager.delete_contact("Existing Contact")
+        self.assertNotIn("Existing Contact", contact_manager.contacts)
 
 
 if __name__ == "__main__":
