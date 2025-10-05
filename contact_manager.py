@@ -7,7 +7,10 @@ def add_contact(name, phone):
     print(f"Added {name} to contacts.")
 
 def find_contact(name):
-    print(contacts[name])
+    try:
+        print(contacts[name])
+    except KeyError:
+        print("Contact not found.")
 
 def delete_contact(name):
     del contacts[name]
