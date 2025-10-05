@@ -20,7 +20,12 @@ def main():
         print("2. Find Contact")
         print("3. Delete Contact")
         print("4. Exit")
-        choice = input("Enter your choice: ")
+
+        try:
+            choice = int(input("Enter your choice (1-4): "))
+        except ValueError:
+            print("Invalid choice. Please enter a number (1-4).")
+            continue
         
         if choice == '1':
             name = input("Enter contact name: ")
