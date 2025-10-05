@@ -13,8 +13,11 @@ def find_contact(name):
         print("Contact not found.")
 
 def delete_contact(name):
-    del contacts[name]
-    print(f"Deleted {name}.")
+    try:
+        del contacts[name]
+        print(f"Deleted {name}.")
+    except KeyError:
+        print("Contact not found.")
 
 def main():
     while True:
@@ -49,9 +52,13 @@ RUN_TESTS = True
 
 if RUN_TESTS:
     test_contacts = {"Anna": "612-123-4567"}
+
     contacts.update(test_contacts)
+
     find_contact("Anna")
     find_contact("Maya")
+
+    delete_contact("Anna")
 
 
 if __name__ == "__main__":
