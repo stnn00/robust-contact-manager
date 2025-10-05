@@ -30,9 +30,10 @@ def add_contact(name, phone):
 
 def find_contact(name):
     try:
+        print(f"[find_contact] Found '{name}': {contacts[name]}")
         return(contacts[name])
     except KeyError:
-        print("Contact not found.")
+        print(f"[find_contact] Contact '{name}' not found.")
         return None
 
 
