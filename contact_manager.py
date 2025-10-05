@@ -1,6 +1,9 @@
 # contact_manager.py
 
-contacts = {"Anna": "612-123-4567"}
+contacts = {}
+
+class DuplicateContactError(Exception):
+    pass
 
 def add_contact(name, phone):
     contacts[name] = phone
