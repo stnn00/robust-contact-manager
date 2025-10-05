@@ -17,7 +17,9 @@ Usage:
 """
 
 import unittest
-import contact_manager
+from contact_manager import ContactManager, DuplicateContactError
+
+cm = ContactManager()
 
 
 class TestContactManager(unittest.TestCase):
