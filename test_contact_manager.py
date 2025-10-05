@@ -6,7 +6,7 @@ import contact_manager
 
 class TestContactManager(unittest.TestCase):
     def test_add_contact(self):
-        """Red: Test adding a contact."""
+        """Test adding a contact."""
         contact_manager.contacts.clear()
         
         contact_manager.add_contact("Vanilla", "612-890-1234")
