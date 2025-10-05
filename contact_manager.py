@@ -1,15 +1,16 @@
 """
-# contact_manager.py
+contact_manager.py
 
-Refactored version of buggy_contacts.py providing a command-line
-contact manager with improved error handling, input validation, and
+Refactored version of starter script buggy_contacts.py
+providing a command-line contact manager with
+improved error handling, input validation, and
 a custom exception for catching duplicate contacts.
 
 Features:
 1. Add new contacts, preventing duplicates with DuplicateContactError.
 2. Search for contacts by name, with user-friendly messages for non-existent entries.
 3. Delete contacts, safely handling attempts to remove non-existent contacts.
-4. Enable manual testing of all core functions with the RUN_TESTS flag.
+4. Optional manual testing of core functions with the RUN_TESTS flag.
 
 main() function launches a command-line menu for user interactions to perform contact operations.
 """
@@ -18,10 +19,24 @@ contacts = {}
 
 
 class DuplicateContactError(Exception):
+    """Custom exception class to raise an exception when attempting to add a contact that already exists."""
     pass
 
 
 def add_contact(name, phone):
+    """
+    Add a new contact to the contacts dictionary.
+
+    Args:
+        name (str): The contact's name.
+        phone (str): The contact's phone number.
+
+    Raises:
+        DuplicateContactError: If the contact already exists.
+    
+    Returns:
+        None
+    """
     if name in contacts:
         raise DuplicateContactError(f"[add_contact] {name} already exists.")
     contacts[name] = phone
@@ -29,23 +44,45 @@ def add_contact(name, phone):
 
 
 def find_contact(name):
+    """
+    Finds a contact's phone number, prints a message if the contact exists or not.
+
+    Args:
+        name (str): The contact's name.
+    
+    Returns:
+        str or None: The phone number if found, otherwise None.
+    """
     try:
         print(f"[find_contact] Found '{name}': {contacts[name]}")
-        return(contacts[name])
+        return contacts[name]
     except KeyError:
         print(f"[find_contact] Contact '{name}' not found.")
         return None
 
 
 def delete_contact(name):
+    """
+    Deletes a contact from the contacts dictionary.
+
+    Prints a message indicating whether deletion was successful or if the contact doesn't exist.
+
+    Args:
+        name (str): The contact's name.
+    """
     try:
         del contacts[name]
-        print(f"[delete_contact] Successfully deleted {name} from contacts.")
+        print(f"[delete_contact] Successfully deleted {name}.")
     except KeyError:
         print(f"[delete_contact] Contact '{name}' not found.")
 
 
 def main():
+    """
+    Runs the command-line menu for the contact manager.
+
+    Handles invalid input and prints readable messages.
+    """
     while True:
         print("\n--- Contact Manager ---")
         print("1. Add Contact")
@@ -63,7 +100,7 @@ def main():
             try:
                 add_contact(name, phone)
             except DuplicateContactError as e:
-                print(f"An error occurred. {e}")
+                print(f"An error occurred: {e}")
         elif choice == 2:
             name = input("Enter name to find: ")
             find_contact(name)
