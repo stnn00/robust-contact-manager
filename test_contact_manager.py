@@ -78,11 +78,11 @@ class TestContactManager(unittest.TestCase):
 
         Ensures that delete_contact successfully removes a contact from dictionary.
         """
-        contact_manager.contacts.clear()
-        contact_manager.add_contact("Existing Contact", "612-123-4567")
-        contact_manager.delete_contact("Existing Contact")
-        self.assertNotIn("Existing Contact", contact_manager.contacts)
-        self.assertEqual(contact_manager.contacts, {})
+        cm = ContactManager()
+        cm.add_contact("Existing Contact", "612-123-4567")
+        cm.delete_contact("Existing Contact")
+        self.assertNotIn("Existing Contact", cm.contacts)
+        self.assertEqual(cm.contacts, {})
 
     def test_delete_nonexistent_contact(self):
         """
@@ -92,9 +92,9 @@ class TestContactManager(unittest.TestCase):
         for contacts that do not exist without crashing or
         raising an exception.
         """
-        contact_manager.contacts.clear()
-        contact_manager.delete_contact("Non-existent Contact")
-        self.assertEqual(contact_manager.contacts, {})
+        cm = ContactManager()
+        cm.delete_contact("Non-existent Contact")
+        self.assertEqual(cm.contacts, {})
 
     def test_adding_duplicate_contact(self):
         """
