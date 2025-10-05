@@ -103,13 +103,10 @@ class TestContactManager(unittest.TestCase):
         Ensures that attempting to add a contact that already
         exists raises a DuplicateContactError.
         """
-        contact_manager.contacts.clear()
-        contact_manager.add_contact("Anna", "612-123-4567")
-        self.assertRaises(
-            contact_manager.DuplicateContactError,
-            contact_manager.add_contact,
-            "Anna", "612-123-4567"
-        )
+        cm = ContactManager()
+        cm.add_contact("Anna", "612-123-4567")
+        with self.assertRaises(DuplicateContactError):
+            cm.add_contact("Anna", "612-123-4567")
 
 
 if __name__ == "__main__":
