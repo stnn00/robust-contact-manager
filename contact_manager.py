@@ -10,7 +10,6 @@ Features:
 1. Add new contacts, preventing duplicates with DuplicateContactError.
 2. Search for contacts by name, with user-friendly messages for non-existent entries.
 3. Delete contacts, safely handling attempts to remove non-existent contacts.
-4. Optional manual testing of core functions with the RUN_TESTS flag.
 
 main() function launches a command-line menu for user interactions to perform contact operations.
 """
@@ -116,23 +115,6 @@ def main():
             break
         else:
             print("Invalid choice.")
-
-
-RUN_TESTS = False
-
-if RUN_TESTS:
-    test_contacts = {"Anna": "612-123-4567"}
-    contacts.update(test_contacts)
-
-    find_contact("Anna")
-    find_contact("Maya")
-
-    try:
-        add_contact("Anna", "612-123-4567")
-    except DuplicateContactError as e:
-        print(e)
-    
-    delete_contact("Anna")
 
 
 if __name__ == "__main__":
