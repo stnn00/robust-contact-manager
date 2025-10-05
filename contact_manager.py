@@ -1,4 +1,18 @@
+"""
 # contact_manager.py
+
+Refactored version of buggy_contacts.py providing a command-line
+contact manager with improved error handling, input validation, and
+a custom exception for catching duplicate contacts.
+
+Features:
+1. Add new contacts, preventing duplicates with DuplicateContactError.
+2. Search for contacts by name, with user-friendly messages for non-existent entries.
+3. Delete contacts, safely handling attempts to remove non-existent contacts.
+4. Enable manual testing of all core functions with the RUN_TESTS flag.
+
+main() function launches a command-line menu for user interactions to perform contact operations.
+"""
 
 contacts = {}
 
