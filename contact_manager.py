@@ -1,6 +1,6 @@
 # contact_manager.py
 
-contacts = {}
+contacts = {"Anna": "612-123-4567"}
 
 def add_contact(name, phone):
     contacts[name] = phone
@@ -44,6 +44,15 @@ def main():
             break
         else:
             print("Invalid choice.")
+
+RUN_TESTS = True
+
+if RUN_TESTS:
+    test_contacts = {"Anna": "612-123-4567"}
+    contacts.update(test_contacts)
+    find_contact("Anna")
+    find_contact("Maya")
+
 
 if __name__ == "__main__":
     main()
