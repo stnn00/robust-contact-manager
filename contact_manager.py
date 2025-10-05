@@ -31,15 +31,14 @@ class ContactManager:
         """
         Add a new contact to the contacts dictionary or raise DuplicateContactError.
 
+        Prints a message indicating that the contact was successfully added.
+
         Args:
             name (str): The contact's name.
             phone (str): The contact's phone number.
 
         Raises:
             DuplicateContactError: If the contact already exists.
-    
-        Returns:
-            str: Message indicating the contact was successfully added.
         """
         if name in self.contacts:
             raise DuplicateContactError(f"{name} already exists.")
@@ -48,7 +47,9 @@ class ContactManager:
 
     def find_contact(self, name):
         """
-        Retrieves a contact's phone number, and prints a message.
+        Retrieves a contact's phone number.
+
+        Prints a message whether the contact is found or not.
 
         Args:
             name (str): The contact's name.
@@ -57,9 +58,9 @@ class ContactManager:
             str or None: Returns the number if found, else None.
         """
         try:
-            phone_number = self.contacts[name]
-            print(f"[find_contact] Found '{name}': {phone_number}")
-            return phone_number
+            phone = self.contacts[name]
+            print(f"[find_contact] Found '{name}': {phone}")
+            return phone
         except KeyError:
             print(f"[find_contact] Contact '{name}' not found.")
             return None
@@ -68,7 +69,7 @@ class ContactManager:
         """
         Deletes a contact from the contacts dictionary.
 
-        Prints a message indicating whether deletion was successful or if the contact doesn't exist.
+        Prints a message indicating success or failure.
 
         Args:
             name (str): The contact's name.
@@ -109,7 +110,15 @@ def main():
 
         if choice == 1:
             name = input("Enter contact name: ").strip()
+            if not name:
+                print("Name cannot be blank.")
+                continue
+
             phone = input("Enter phone number: ").strip()
+            if not phone:
+                print("Phone number cannot be blank.")
+                continue
+
             try:
                 contact_manager.add_contact(name, phone)
             except DuplicateContactError as e:
@@ -117,13 +126,22 @@ def main():
 
         elif choice == 2:
             name = input("Enter name to find: ").strip()
+            if not name:
+                print("Name cannot be blank.")
+                continue
+
             contact_manager.find_contact(name)
 
         elif choice == 3:
             name = input("Enter name to delete: ").strip()
+            if not name:
+                print("Name cannot be blank.")
+                continue
+
             contact_manager.delete_contact(name)
 
         elif choice == 4:
+            print("Exiting program...")
             break
 
         else:
