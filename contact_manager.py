@@ -66,6 +66,11 @@ if RUN_TESTS:
     find_contact("Anna")
     find_contact("Maya")
 
+    try:
+        add_contact("Anna", "612-123-4567")
+    except DuplicateContactError as e:
+        print(e)
+    
     delete_contact("Anna")
 
 
